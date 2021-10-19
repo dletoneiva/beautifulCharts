@@ -1,4 +1,5 @@
 import seaborn as sns
+
 class Chart: 
     """
     Mother class that allows the plots.
@@ -7,7 +8,7 @@ class Chart:
         - Test for hex strings in color palettes.
     """
 
-    def __init__(self, saveFigures=1):
+    def __init__(self):
         """
         Initializes the chart object with default values.
 
@@ -20,6 +21,12 @@ class Chart:
             color palette (RGB)
 
             saveFigures (bool): default is to save figures at the same folder
+
+            title (string): title to be put at the figure
+
+            useLegend (bool): default is not to use legends
+
+            legend (list of strings): legends to be put at
         """
         self.primaryColorPalette = ['#DB6B2E',
                                     '#E28958',
@@ -31,8 +38,11 @@ class Chart:
                                       '#ADC242',
                                       '#432466',
                                       '#55A8B5'] # set in happy colors
+        self.saveFigures=1,
+        self.useLegend = 0,
+        self.title = "",
+        self.legend = []
 
-        self.saveFigures = saveFigures
 
     def changeColorPalettePrimary(self, colorPalette, showPalette=1):
         """
@@ -74,3 +84,22 @@ class Chart:
 
             return self.primaryColorPalette
     
+    def changeProperties(self,
+                         saveFigures=1,
+                         useLegend = 0,
+                         title = '',
+                         legend = []):
+        """
+            Changes the default properties.
+
+            Args: 
+                see parent class.
+
+            Returns:
+                None
+        """
+
+        self.saveFigures = saveFigures
+        self.title = title
+        self.useLegend =useLegend
+        self.legend = legend
