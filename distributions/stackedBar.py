@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-from .BeautifulChart import Chart
+import BeautifulChart as bc
 
-class stackedBar(Chart):
+class stackedBar(bc.Chart):
     """
     Plots a stacked bar pattern for the data. Better used for part-all
     comparisons (like how a team behaves compared to the overall company).
@@ -17,4 +17,4 @@ class stackedBar(Chart):
         self.overallValues = overallValues
         self.categories = categories
         
-        Chart.__init__(self)
+        bc.Chart.__init__(self)

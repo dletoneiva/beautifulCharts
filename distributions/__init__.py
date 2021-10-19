@@ -1,2 +1,2 @@
 
-from .BeautifulChart import Chart
+import BeautifulChart as bc

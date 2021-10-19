@@ -6,8 +6,8 @@ class Chart:
     Future improvements:
         - Test for hex strings in color palettes.
     """
-    
-    def __init__(self):
+
+    def __init__(self, saveFigures=1):
         """
         Initializes the chart object with default values.
 
@@ -18,6 +18,8 @@ class Chart:
 
             secondaryColorPalette (list of 4 hex): list containing the secondary 
             color palette (RGB)
+
+            saveFigures (bool): default is to save figures at the same folder
         """
         self.primaryColorPalette = ['#DB6B2E',
                                     '#E28958',
@@ -29,6 +31,8 @@ class Chart:
                                       '#ADC242',
                                       '#432466',
                                       '#55A8B5'] # set in happy colors
+
+        self.saveFigures = saveFigures
 
     def changeColorPalettePrimary(self, colorPalette, showPalette=1):
         """
@@ -69,3 +73,4 @@ class Chart:
                 sns.palplot(colorPalette)
 
             return self.primaryColorPalette
+    
