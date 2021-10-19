@@ -1,4 +1,12 @@
+import seaborn as sns
 class Chart: 
+    """
+    Mother class that allows the plots.
+
+    Future improvements:
+        - Test for hex strings in color palettes.
+    """
+    
     def __init__(self):
         """
         Initializes the chart object with default values.
@@ -22,7 +30,7 @@ class Chart:
                                       '#432466',
                                       '#55A8B5'] # set in happy colors
 
-    def changeColorPalettePrimary(self, color_palette):
+    def changeColorPalettePrimary(self, colorPalette, showPalette=1):
         """
         Changes the primary color palette, low conspicuity uses
 
@@ -33,14 +41,16 @@ class Chart:
             None
 
         """
-        if len(color_palette)!= 5:
+        if len(colorPalette)!= 5:
             return 'Incompatible list size.'
         else:
-            self.primaryColorPalette = color_palette
-            return self.primaryColorPalette
-        
+            self.primaryColorPalette = colorPalette
+            if showPalette == 1: # shows the palette for the user
+                sns.palplot(colorPalette)
 
-    def changeColorPaletteSecondary(self, color_palette):
+            return self.primaryColorPalette
+
+    def changeColorPaletteSecondary(self, colorPalette, showPalette=1):
         """
         Changes the secondary color palette, high conspicuity uses
 
@@ -51,4 +61,11 @@ class Chart:
             None
 
         """
-        pass
+        if len(colorPalette)!= 4:
+            return 'Incompatible list size.'
+        else:
+            self.primaryColorPalette = colorPalette
+            if showPalette == 1: # shows the palette for the user
+                sns.palplot(colorPalette)
+
+            return self.primaryColorPalette

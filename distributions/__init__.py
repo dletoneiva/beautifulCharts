@@ -1,1 +1,2 @@
 
+from .BeautifulChart import Chart
